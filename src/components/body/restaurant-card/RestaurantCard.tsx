@@ -10,7 +10,9 @@ interface RestaurantCardProps {
     imageId: string;
 }
 
-const CLOUDINARY_BASE_URL = import.meta.env.VITE_CLOUDINARY_BASE_URL;
+const CLOUDINARY_BASE_URL =
+    import.meta.env.VITE_CLOUDINARY_BASE_URL ??
+    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 const RestaurantCard = ({
     id,
