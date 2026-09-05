@@ -14,13 +14,13 @@ function App() {
     // useEffect(() => {
     //     // Make an ACTUAL API call here to fetch user data
     //     const data = {
-    //         name: "Ansh",
+    //         name: "Shubham",
     //     };
         
     //     setUserName(data.name);
     // }, []);
     
-    const userName = "Ansh";
+    const userName = "Shubham";
 
     return (
         <Provider store={ appStore }>
