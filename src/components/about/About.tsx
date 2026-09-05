@@ -12,16 +12,30 @@ interface GitHubUser {
 
 const About = () => {
     const [user, setUser] = useState<GitHubUser | null>(null);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await fetch(`https://api.github.com/users/ansh30a`);
-            const data: GitHubUser = await res.json();
-            setUser(data);
+            try {
+                const res = await fetch("https://api.github.com/users/ShubhamJha28");
+
+                if (!res.ok) {
+                    throw new Error("Unable to fetch GitHub profile");
+                }
+
+                const data: GitHubUser = await res.json();
+                setUser(data);
+            } catch {
+                setError(true);
+            }
         };
 
         fetchUser();
     }, []);
+
+    if (error) {
+        return <p>Unable to load the GitHub profile right now.</p>;
+    }
 
     if (!user) return <Shimmer />;
 
